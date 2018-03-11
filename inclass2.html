@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<title> In Class 2</title>
+
+		<script>
+
+			var temperatureInCelsius;
+			var temperatureInFahrenheit;
+
+			function ConvertionToFahrenheit()
+			{
+				temperatureInCelsius=parseInt(prompt("Enter the temperature in Celcius"));
+
+				temperatureInFahrenheit=(temperatureInCelsius*9)/5+32;
+
+				if (temperatureInFahrenheit < 0)
+				{
+					document.getElementById("temperatureInFahrenheit").style.color = "blue";
+					document.getElementById("temperatureInFahrenheit").innerHTML= "Temperature in Fahrenheit is " +temperatureInFahrenheit;
+				}
+				else if (temperatureInFahrenheit == 0)
+				{
+					document.getElementById("temperatureInFahrenheit").style.color = "black";
+					document.getElementById("temperatureInFahrenheit").innerHTML= "Temperature in Fahrenheit is " +temperatureInFahrenheit;
+				}
+				else
+				{
+					document.getElementById("temperatureInFahrenheit").style.color = "red";
+					document.getElementById("temperatureInFahrenheit").innerHTML= "Temperature in Fahrenheit is " +temperatureInFahrenheit;
+				}
+			}
+
+			function ConvertionToCelsius()
+			{
+				temperatureInFahrenheit=parseInt(prompt("Enter the temperature in Fahrenheit"));
+				temperatureInCelsius=(temperatureInFahrenheit-32)*5/9;
+
+
+				if (temperatureInCelsius <0)
+				{
+					document.getElementById("temperatureInCelsius").style.color = "blue";
+					document.getElementById("temperatureInCelsius").innerHTML= "Temperature in Celsius is " +temperatureInCelsius;
+				}
+				else if (temperatureInCelsius == 0)
+				{
+					document.getElementById("temperatureInFahrenheit").style.color = "black";
+					document.getElementById("temperatureInCelsius").innerHTML= "Temperature in Celsius is " +temperatureInCelsius;
+				}
+				else
+				{
+					document.getElementById("temperatureInFahrenheit").style.color = "red";
+					document.getElementById("temperatureInCelsius").innerHTML= "Temperature in Celsius is " +temperatureInCelsius;
+				}
+			}
+
+
+		</script>
+
+	</head>
+
+	<body>
+		<h1> InClass 2</h1>
+
+		<p> This website will help you to convert the temperature from Celsius to Fahrenheit and vice versa.
+		Here I have created two buttons. One with name "Celsius to Fahrenheit" and other with name "Fahrenheit to Celsius".</p>
+
+		<p>If you click at the button named "Celsius to Fahrenheit", it will ask you to enter the temperature in Celsius and
+		then it will convert it to Fahrenheit and then will display the temperature in Fahrenheit</p>
+
+		<p>If you click at the button named "Fahrenheit to Celsius", it will ask you to enter the temperature in Fahrenheit and
+		then it will convert it to Celsius and then will display the temperature in Celsius</p>
+
+		<input type="button" id="CelsiusToFahrenheit" value="Celsius to Fahrenheit"
+		onclick = "ConvertionToFahrenheit()" >
+
+		<p id="temperatureInFahrenheit"></p>
+
+		<input type="button" id="FahrenheitToCelsius" value="Fahrenheit to Celsius"
+		onclick = "ConvertionToCelsius()" >
+		<p id="temperatureInCelsius"></p>
+
+	</body>
+
+</html>

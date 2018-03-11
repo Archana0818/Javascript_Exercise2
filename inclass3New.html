@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title> In Class 3</title>
+		<style>
+			/*In order to change the top position, it needs to be set to relative */
+			#rocket{
+				position:relative;
+			}
+		</style>
+		<script>
+			//This function will be called when timer = blast off
+			function AnimateRocket(){
+
+				//Creating an interval on the animate() function, every 10 milliseconds.
+				var drawInterval = window.setInterval(animate,10);
+				//Getting the img element that has the rocket image on it
+				var myRocket = document.getElementById("rocket");
+
+				var position = 0;
+
+				//animate function that will be called every 10 milliseconds
+				function animate(){
+					position-=1;
+					
+					//changing the top position of the image element
+					myRocket.style.top=position+"px";
+
+					//stop the interval once the rocket is at -300 pixels.
+					if (position <-300){
+						clearInterval(myRocket);
+					}
+				}
+			}
+			function CountDownStart()
+			{
+				//Creating an interval on the countDown function, every 1000 millisecond (1 second)
+				var myInterval = window.setInterval(countDown,1000);
+				//Initialize starting time
+				var count=10;
+				//Here is the function that will be called every second by setInterval
+				function countDown(){
+					//Check if the timer is down to 0
+					if (count <1){
+						//Stop the interval, so that it doesn't keep calling the countDown() function after timer is 0
+						clearInterval(myInterval);
+						//Once timer is 0, the rocket blasts off
+						document.getElementById("countdown").textContent= "Blast Off" ;
+						AnimateRocket();
+						return;
+					}
+					//If the timer isn't 0 yet, then write the current time
+					document.getElementById("countdown").textContent=count ;
+					//Subtract one from the timer
+					count = count - 1;
+				}
+			}
+
+		</script>
+
+	</head>
+
+	<body>
+
+		<h1> Countdown to Blastoff!</h1>
+
+		<p> If you press the button named Blast. It will show you the countdown starting from 10 to 1.</p>
+
+		<input type="button" id="rocketBlast" value="Blast"
+		onclick = "CountDownStart()">
+
+		<p id="countdown"></p>
+		<!--Added id="rocket" to the image, so that its position can be set to relative
+		and manipulate the 'top'' style -->
+		<img id="rocket" src="Image/download.jpg" width="114" height="38">
+
+	</body>
+
+</html>
